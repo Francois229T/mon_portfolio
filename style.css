@@ -78,7 +78,7 @@ nav ul {
 
 nav ul li a {
     color: var(--couleur-texte-clair);
-    margin: 0 20px;
+    margin: 0 10px;
     font-weight: bold;
     padding: 8px 15px;
     border: 1px solid var(--couleur-fond-section);
@@ -222,5 +222,19 @@ footer {
     }
     section {
         padding: 30px 5%;
+    }
+
+    nav ul {
+        /* Force les liens à s'empiler verticalement */
+        flex-direction: column; 
+        gap: 5px; 
+        padding: 0;
+    }
+    
+    nav ul li a {
+        display: block; /* Le lien prend toute la largeur */
+        padding: 5px;
+        margin: 5px auto; /* Centre les liens sur l'écran */
+        max-width: 150px; 
     }
 }
