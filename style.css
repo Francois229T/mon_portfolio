@@ -1,13 +1,14 @@
 /* ========================================================= */
-/* 0. RÉINITIALISATION ET FONTES DE BASE */
+/* 0. RÉINITIALISATION ET COULEURS (DARK MODE) */
 /* ========================================================= */
 :root {
-    /* Couleurs de la palette */
-    --couleur-primaire: #0077b6; /* Bleu professionnel (comme les liens LinkedIn) */
-    --couleur-secondaire: #48cae4; /* Bleu clair pour l'accentuation */
-    --couleur-texte: #333; /* Gris foncé pour la lisibilité */
-    --couleur-fond: #f4f7f6; /* Gris très clair, évite le blanc pur */
-    --couleur-fond-section: #fff; /* Blanc pour les sections principales */
+    /* Palette de couleurs en mode sombre */
+    --couleur-fond-principal: #1f2833; /* Noir/Gris très foncé */
+    --couleur-fond-section: #0b0c10; /* Noir pur pour le contraste des blocs */
+    --couleur-texte-clair: #c5c6c7; /* Gris clair pour le texte principal */
+    --couleur-accent: #66fcf1; /* Bleu-vert électrique (accent technique) */
+    --couleur-primaire: #45a29e; /* Vert-bleu pour les liens */
+    --couleur-ombre: rgba(102, 252, 241, 0.2); /* Ombre légère de l'accent */
 }
 
 * {
@@ -17,18 +18,20 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif; /* Police claire et standard */
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: var(--couleur-texte);
-    background-color: var(--couleur-fond);
+    color: var(--couleur-texte-clair);
+    background-color: var(--couleur-fond-principal);
 }
 
 a {
-    color: var(--couleur-primaire);
+    color: var(--couleur-accent);
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 a:hover {
+    color: var(--couleur-primaire);
     text-decoration: underline;
 }
 
@@ -36,31 +39,33 @@ a:hover {
 /* 1. MISE EN PAGE GÉNÉRALE ET TYPOGRAPHIE */
 /* ========================================================= */
 section {
-    padding: 60px 5%; /* Espace intérieur (haut/bas et côtés) */
-    margin: 20px 0;
+    max-width: 1200px;
+    margin: 40px auto; /* Centrer les sections */
+    padding: 60px 5%;
     background-color: var(--couleur-fond-section);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Ombre légère pour délimiter */
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--couleur-ombre); /* Ombre subtile */
 }
 
 h1, h2, h3 {
     margin-bottom: 15px;
-    color: #1a1a1a;
+    color: var(--couleur-accent);
 }
 
 h2 {
-    font-size: 2.2em;
-    border-bottom: 3px solid var(--couleur-secondaire);
+    font-size: 2.5em;
+    border-bottom: 3px solid var(--couleur-accent);
     padding-bottom: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
 }
 
 /* ========================================================= */
-/* 2. EN-TÊTE ET NAVIGATION */
+/* 2. EN-TÊTE ET NAVIGATION (Style Minimaliste) */
 /* ========================================================= */
 header {
-    background-color: var(--couleur-primaire);
-    color: white;
-    padding: 20px 5%;
+    background-color: var(--couleur-fond-section);
+    padding: 30px 5%;
     text-align: center;
 }
 
@@ -72,130 +77,150 @@ nav ul {
 }
 
 nav ul li a {
-    color: white;
-    margin: 0 15px;
+    color: var(--couleur-texte-clair);
+    margin: 0 20px;
     font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    padding: 8px 15px;
+    border: 1px solid var(--couleur-fond-section);
+    transition: all 0.3s;
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--couleur-accent);
+    border-color: var(--couleur-accent);
+    background-color: rgba(102, 252, 241, 0.05);
     text-decoration: none;
 }
 
 .hero h1 {
-    font-size: 3em;
+    font-size: 4em;
     margin-top: 20px;
-    color: white;
+    margin-bottom: 5px;
+    color: var(--couleur-accent);
+    text-shadow: 0 0 5px var(--couleur-ombre);
 }
 
 .hero p {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5em;
+    color: var(--couleur-texte-clair);
 }
 
 /* ========================================================= */
-/* 3. SECTION COMPÉTENCES */
+/* 3. SECTION COMPÉTENCES (Utilise des "puces" stylisées) */
 /* ========================================================= */
 .competences ul {
     list-style: none;
-    display: flex; /* Utilisation de Flexbox pour aligner */
+    display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
     padding-top: 10px;
 }
 
 .competences li {
-    background: var(--couleur-fond);
-    padding: 10px 15px;
+    background: var(--couleur-fond-principal);
+    padding: 10px 20px;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    border-left: 3px solid var(--couleur-primaire); /* Bande de couleur GIT */
     font-weight: 500;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 /* ========================================================= */
-/* 4. SECTION PROJETS */
+/* 4. SECTION PROJETS (Cartes contrastées) */
 /* ========================================================= */
 #projets {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* 2 colonnes sur grand écran */
+    gap: 30px;
 }
 
 .projet-carte {
-    border: 1px solid #ddd;
-    padding: 25px;
-    border-radius: 8px;
+    background-color: var(--couleur-fond-principal);
+    padding: 30px;
+    border-radius: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--couleur-primaire);
 }
 
 .projet-carte:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px var(--couleur-ombre);
 }
 
 .projet-carte h3 {
-    color: var(--couleur-primaire);
+    color: var(--couleur-accent);
+    margin-bottom: 15px;
 }
 
-.projet-carte strong {
+.projet-carte a {
+    display: inline-block;
+    margin-top: 15px;
     font-weight: bold;
-    color: #555;
 }
+
 
 /* ========================================================= */
 /* 5. PIED DE PAGE */
 /* ========================================================= */
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: #ddd;
+    padding: 25px;
+    background-color: #0b0c10;
+    color: #45a29e;
     font-size: 0.9em;
+    margin-top: 40px;
 }
 
 /* ========================================================= */
-/* 6. MEDIA QUERIES (Rendre le site Responsive) */
-/* ========================================================= */
-/* Pour les écrans plus petits (téléphones) */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5em;
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 5px;
-    }
-    nav ul li a {
-        display: block;
-        margin: 5px 0;
-    }
-    section {
-        padding: 40px 5%;
-    }
-    .competences ul {
-        gap: 10px;
-    }
-}
-
-/* ========================================================= */
-/* 7. STYLE SPÉCIFIQUE AUX PAGES DE PROJETS */
+/* 6. STYLE SPÉCIFIQUE AUX PAGES DE PROJETS */
 /* ========================================================= */
 
 .contenu-projet {
-    max-width: 900px; /* Limiter la largeur du texte pour la lisibilité */
-    margin: 0 auto; /* Centrer le contenu */
+    /* Style du contenu principal des pages de détail (projet-admin.html, etc.) */
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.contenu-projet h3 {
-    margin-top: 25px;
-    color: var(--couleur-secondaire);
+.contenu-projet ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
-.competences-projet {
-    /* Style pour les listes de technologies ou réalisations */
-    padding-left: 20px;
+.contenu-projet li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.contenu-projet li::before {
+    /* Puces personnalisées (Accent couleur) */
+    content: "▶"; 
+    color: var(--couleur-accent);
+    position: absolute;
+    left: 0;
+    font-size: 0.8em;
+    top: 5px;
+}
+
+/* ========================================================= */
+/* 7. MEDIA QUERIES (Rendre le site Responsive) */
+/* ========================================================= */
+@media (max-width: 900px) {
+    /* S'assurer que les cartes de projets ne sont pas trop serrées sur tablette */
+    #projets {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Ajustements pour les petits téléphones */
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    .hero p {
+        font-size: 1.2em;
+    }
+    section {
+        padding: 30px 5%;
+    }
 }
