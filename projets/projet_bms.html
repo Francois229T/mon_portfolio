@@ -1,0 +1,28 @@
+<head>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<h2>Projet : Calibrage Automatique et Reprogrammation de BMS (STM32)</h2>
+<p>L'objectif était d'automatiser le processus de calibrage et d'initialisation des cartes BMS basées sur microcontrôleur STM32, une étape manuelle, répétitive et critique en production. Le projet a permis de standardiser la mise en service et d'assurer l'injection de données spécifiques à chaque unité.</p>
+
+<h3>Technologies Clés</h3>
+<ul>
+    <li>Microcontrôleur : STM32 (maîtrise des outils d'interfaçage et de mémoire Flash).</li>
+    <li>Langage d'Automatisation : Python (scripting pour orchestrer les étapes).</li>
+    <li>Outils d'Interfaçage : Outils ST-Link, couplés à des câbles ST-Link pour la communication JTAG/SWD.</li>
+</ul>
+
+<h3>Actions et Réalisations</h3>
+<ul>
+    <li>Automatisation du Flux : Développement d'un script Python pour gérer séquentiellement les étapes : (1) Recherche du numéro de série dans un fichier CSV, (2) Effacement de la mémoire Flash du STM32.</li>
+    <li>Mise à Jour Firmware : Utilisation de l'outil ST-Link pour la mise à jour (flashing) automatique de la mémoire avec un firmware préexistant.</li>
+    <li>Injection de Données Critiques : Automatisation de l'écriture des données spécifiques à la carte (numéro de série, starting code, clé secrète) dans la mémoire Flash pour le bon fonctionnement de la BMS.</li>
+    <li>Garantie de Fiabilité : Le script assure la traçabilité des numéros de série, essentielle pour le contrôle qualité et la garantie produit.</li>
+</ul>
+
+<h3>Résultats et Compétences Démontrées</h3>
+<ul>
+    <li>Démonstration de compétences avancées en programmation de bas niveau et en systèmes embarqués (STM32).</li>
+    <li>Maîtrise de l'automatisation (Python) pour la production et le contrôle qualité.</li>
+    <li>Capacité à interagir avec le matériel via des outils spécifiques (ST-Link), prouvant une expertise dans le domaine de l'interfaçage logiciel/matériel.</li>
+</ul>

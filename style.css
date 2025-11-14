@@ -1,0 +1,201 @@
+/* ========================================================= */
+/* 0. RÉINITIALISATION ET FONTES DE BASE */
+/* ========================================================= */
+:root {
+    /* Couleurs de la palette */
+    --couleur-primaire: #0077b6; /* Bleu professionnel (comme les liens LinkedIn) */
+    --couleur-secondaire: #48cae4; /* Bleu clair pour l'accentuation */
+    --couleur-texte: #333; /* Gris foncé pour la lisibilité */
+    --couleur-fond: #f4f7f6; /* Gris très clair, évite le blanc pur */
+    --couleur-fond-section: #fff; /* Blanc pour les sections principales */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Police claire et standard */
+    line-height: 1.6;
+    color: var(--couleur-texte);
+    background-color: var(--couleur-fond);
+}
+
+a {
+    color: var(--couleur-primaire);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================================= */
+/* 1. MISE EN PAGE GÉNÉRALE ET TYPOGRAPHIE */
+/* ========================================================= */
+section {
+    padding: 60px 5%; /* Espace intérieur (haut/bas et côtés) */
+    margin: 20px 0;
+    background-color: var(--couleur-fond-section);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Ombre légère pour délimiter */
+}
+
+h1, h2, h3 {
+    margin-bottom: 15px;
+    color: #1a1a1a;
+}
+
+h2 {
+    font-size: 2.2em;
+    border-bottom: 3px solid var(--couleur-secondaire);
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+}
+
+/* ========================================================= */
+/* 2. EN-TÊTE ET NAVIGATION */
+/* ========================================================= */
+header {
+    background-color: var(--couleur-primaire);
+    color: white;
+    padding: 20px 5%;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+nav ul li a {
+    color: white;
+    margin: 0 15px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-top: 20px;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================================= */
+/* 3. SECTION COMPÉTENCES */
+/* ========================================================= */
+.competences ul {
+    list-style: none;
+    display: flex; /* Utilisation de Flexbox pour aligner */
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.competences li {
+    background: var(--couleur-fond);
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-weight: 500;
+}
+
+/* ========================================================= */
+/* 4. SECTION PROJETS */
+/* ========================================================= */
+#projets {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.projet-carte {
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.projet-carte:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.projet-carte h3 {
+    color: var(--couleur-primaire);
+}
+
+.projet-carte strong {
+    font-weight: bold;
+    color: #555;
+}
+
+/* ========================================================= */
+/* 5. PIED DE PAGE */
+/* ========================================================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #ddd;
+    font-size: 0.9em;
+}
+
+/* ========================================================= */
+/* 6. MEDIA QUERIES (Rendre le site Responsive) */
+/* ========================================================= */
+/* Pour les écrans plus petits (téléphones) */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+    nav ul li a {
+        display: block;
+        margin: 5px 0;
+    }
+    section {
+        padding: 40px 5%;
+    }
+    .competences ul {
+        gap: 10px;
+    }
+}
+
+/* ========================================================= */
+/* 7. STYLE SPÉCIFIQUE AUX PAGES DE PROJETS */
+/* ========================================================= */
+
+.contenu-projet {
+    max-width: 900px; /* Limiter la largeur du texte pour la lisibilité */
+    margin: 0 auto; /* Centrer le contenu */
+}
+
+.contenu-projet h3 {
+    margin-top: 25px;
+    color: var(--couleur-secondaire);
+}
+
+.competences-projet {
+    /* Style pour les listes de technologies ou réalisations */
+    padding-left: 20px;
+}
